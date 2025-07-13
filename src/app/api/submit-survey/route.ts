@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-<<<<<<< HEAD
 import { supabase } from '@/lib/supabase';
-=======
-import { supabase } from '../../lib/supabase';
->>>>>>> 35d30ba (fix: use relative path for supabase import)
 
 interface SurveyAnswer {
   questionId: number;
@@ -43,11 +39,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-<<<<<<< HEAD
     // Supabaseにデータを保存
-=======
-    // Supabaseのsurvey_submissionsテーブルにデータを挿入
->>>>>>> 35d30ba (fix: use relative path for supabase import)
     const { error } = await supabase
       .from('survey_submissions')
       .insert([
@@ -69,7 +61,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { message: 'Survey submitted successfully to Supabase.' },
       { status: 200 }
-    ); 
+    );
 
   } catch (error) {
     console.error('Error submitting survey:', error);
